@@ -1,0 +1,19 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "The server side Node + Express web application",
+    "main": "index.js",
+    "type": "module",
+    "engines": {
+        "node": "15.5.0",
+        "yarn": "1.22.5"
+    },
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Habiburrahman",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
