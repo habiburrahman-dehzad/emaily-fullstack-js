@@ -3,17 +3,22 @@
     "version": "1.0.0",
     "description": "The server side Node + Express web application",
     "main": "index.js",
-    "type": "module",
     "engines": {
         "node": "15.x",
         "yarn": "1.x"
     },
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "dev": "nodemon index.js"
     },
     "author": "Habiburrahman",
     "license": "MIT",
     "dependencies": {
-        "express": "^4.17.1"
+        "cookie-session": "^1.4.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.11.9",
+        "nodemon": "^2.0.6",
+        "passport": "^0.4.1",
+        "passport-google-oauth20": "^2.0.0"
     }
 }
