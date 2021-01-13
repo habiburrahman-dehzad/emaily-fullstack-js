@@ -5,12 +5,12 @@ const passport = require('passport');
 const authRoutes = require('./routes/authRoutes');
 const keys = require('./config/keys');
 
-const app = express()
+const app = express();
 app.use(
-    cookieSession({
-        maxAge: 30 * 24 * 60 * 60 * 1000,
-        keys: [keys.cookieKey]
-    })
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey],
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -20,15 +20,18 @@ authRoutes(app);
 require('./models/User');
 require('./services/passport');
 
-mongoose.connect(keys.mongoUri, { useNewUrlParser: true });
+mongoose.connect(keys.mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.get('/', (req, res) => {
-    res.send({Home: 'Emaily home page'})
+  res.send({ Home: 'Emaily home page' });
 });
 
 app.get('/error', (req, res) => {
-    res.send(JSON.stringify(req));
+  res.send(JSON.stringify(req));
 });
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT)
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
