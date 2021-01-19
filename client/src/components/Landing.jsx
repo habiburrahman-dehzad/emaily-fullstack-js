@@ -10,9 +10,9 @@ const Landing = ({ auth }) => {
       <p className='lead'>Know your customers.</p>
       <p>
         Collect feedback from your customers with ease.
-        {auth && ' All you need is a Google account'}.
+        {!auth && ' All you need is a Google account'}.
       </p>
-      {auth && (
+      {!auth && (
         <Fragment>
           <p>Click Sign in With Google to begin.</p>
           <p>
