@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const Landing = ({ auth }) => {
   return (
     <Jumbotron className='text-center'>
-      <h1>Eamily</h1>
+      <h1>Emaily</h1>
       <p className='lead'>Know your customers.</p>
       <p>
         Collect feedback from your customers with ease.
