@@ -1,29 +1,30 @@
 {
-    "name": "server",
-    "version": "1.0.0",
-    "description": "The server side Node + Express web application",
-    "main": "index.js",
-    "engines": {
-        "node": "15.x",
-        "yarn": "1.x"
-    },
-    "scripts": {
-        "start": "node index.js",
-        "server": "nodemon index.js",
-        "client": "yarn --cwd ./client/ start",
-        "dev": "concurrently \"yarn server\" \"yarn client\""
-    },
-    "author": "Habiburrahman",
-    "license": "MIT",
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "concurrently": "^5.3.0",
-        "cookie-session": "^1.4.0",
-        "express": "^4.17.1",
-        "mongoose": "^5.11.9",
-        "nodemon": "^2.0.6",
-        "passport": "^0.4.1",
-        "passport-google-oauth20": "^2.0.0",
-        "stripe": "^8.131.1"
-    }
+  "name": "server",
+  "version": "1.0.0",
+  "description": "The server side Node + Express web application",
+  "main": "index.js",
+  "engines": {
+    "node": "15.x",
+    "yarn": "1.x"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "yarn --cwd ./client/ start",
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn --cwd ./client/ install && yarn --cwd ./client/ build"
+  },
+  "author": "Habiburrahman",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "stripe": "^8.131.1"
+  }
 }
