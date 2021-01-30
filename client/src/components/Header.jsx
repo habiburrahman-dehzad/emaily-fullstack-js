@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBBtn } from 'mdbreact';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
 const Header = ({ auth }) => {
@@ -11,34 +9,26 @@ const Header = ({ auth }) => {
       case null:
         return;
       case false:
-        return <Button href='/auth/google'>Sign in With Google</Button>;
+        return <MDBBtn href='/auth/google'>Sign in With Google</MDBBtn>;
       default:
         return (
           <Fragment>
-            <Payments />{' '}
+            <Payments />
             {auth.credits ? (
-              <Fragment>
-                <Button variant='info'>Credits: {auth.credits}</Button>{' '}
-              </Fragment>
+              <MDBBtn active>Credits: {auth.credits}</MDBBtn>
             ) : (
-              <Fragment>
-                <Button variant='info'>No Credits</Button>{' '}
-              </Fragment>
+              <MDBBtn active>No Credits</MDBBtn>
             )}
-            <Button href='/api/logout'>Logout</Button>
+            <MDBBtn href='/api/logout'>Logout</MDBBtn>
           </Fragment>
         );
     }
   };
   return (
-    <Navbar bg='dark' variant='dark'>
-      <Navbar.Brand as={Link} to={!auth ? '/' : '/surveys'}>
-        Emaily
-      </Navbar.Brand>
-      <Navbar.Collapse className='justify-content-end'>
-        <Navbar.Text>{renderButtons()}</Navbar.Text>
-      </Navbar.Collapse>
-    </Navbar>
+    <MDBNavbar color='default-color' dark expand='md'>
+      <MDBNavbarBrand href={!auth ? '/' : '/surveys'}>Emaily</MDBNavbarBrand>
+      <MDBNavbarNav right>{renderButtons()}</MDBNavbarNav>
+    </MDBNavbar>
   );
 };
 

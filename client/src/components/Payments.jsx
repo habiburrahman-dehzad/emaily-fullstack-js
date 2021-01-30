@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/esm/Button';
+import { MDBBtn } from 'mdbreact';
 import { connect } from 'react-redux';
 import StripeCheckout from 'react-stripe-checkout';
 import { handleToken } from '../actions/billingActions';
@@ -13,7 +13,7 @@ const Payments = ({ handleToken }) => {
       token={(token) => handleToken(token)}
       stripeKey={process.env.REACT_APP_STRIPE_KEY}
     >
-      <Button variant='success'>Add Credit</Button>
+      <MDBBtn>Add Credit</MDBBtn>
     </StripeCheckout>
   );
 };
